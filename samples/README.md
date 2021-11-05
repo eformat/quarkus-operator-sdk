@@ -24,8 +24,8 @@ cluster. You can just follow the steps below to get started quickly:
   issue for most "testing" clusters such as `minikube` or `kind`, you might need to log in to your
   OpenShift clusters with an admin account):
   ```sh
-  kubectl apply -f target/classes/META-INF/fabric8/jokerequests.samples.javaoperatorsdk.io-v1.yml
-  kubectl apply -f target/classes/META-INF/fabric8/jokes.samples.javaoperatorsdk.io-v1.yml
+  kubectl apply -f ./target/kubernetes/jokerequests.samples.javaoperatorsdk.io-v1.yml
+  kubectl apply -f ./target/kubernetes/jokes.samples.javaoperatorsdk.io-v1.yml
   ```           
 - Launch the app in dev mode: `mvn quarkus:dev`
 - Deploy the test request (or your own): `kubectl apply -f src/main/resources/jokerequest.yml`
@@ -45,6 +45,11 @@ cluster. You can just follow the steps below to get started quickly:
       ```shell
       kubectl get jokes <your joke id> -o jsonpath="{.joke}{'\n'}" 
       ```
+      or
+      ```shell
+      kubectl get jokes <your joke id> -o jsonpath="{.setup} {.delivery}{'\n'}"
+      ```
+```
 
 ### Cluster deployment
 

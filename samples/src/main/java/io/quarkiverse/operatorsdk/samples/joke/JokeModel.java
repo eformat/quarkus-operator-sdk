@@ -39,6 +39,8 @@ public class JokeModel {
     public String additionalInfo;
     public String category;
     public String joke;
+    public String setup;
+    public String delivery;
     public Map<String, Boolean> flags;
     public int id;
     public boolean safe;

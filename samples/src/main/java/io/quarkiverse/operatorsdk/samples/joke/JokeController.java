@@ -61,7 +61,8 @@ public class JokeController implements ResourceController<JokeRequest> {
             status = JokeRequestStatus.from(fromApi);
             if (!status.isError()) {
                 // create the joke
-                final var joke = new Joke(fromApi.id, fromApi.joke, fromApi.category, fromApi.safe,
+                final var joke = new Joke(fromApi.id, fromApi.joke, fromApi.setup, fromApi.delivery, fromApi.category,
+                        fromApi.safe,
                         fromApi.lang);
 
                 final var flags = fromApi.flags.entrySet().stream().collect(Collectors.toMap(

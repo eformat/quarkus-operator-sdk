@@ -27,6 +27,8 @@ import io.fabric8.kubernetes.model.annotation.Version;
 @JsonInclude(Include.NON_NULL)
 public class Joke extends CustomResource<Void, Void> implements Namespaced {
     private String joke;
+    private String setup;
+    private String delivery;
     private String category;
     private boolean safe;
     private String lang;
@@ -35,10 +37,12 @@ public class Joke extends CustomResource<Void, Void> implements Namespaced {
     public Joke() {
     }
 
-    public Joke(int id, String joke, String category, boolean safe, String lang) {
+    public Joke(int id, String joke, String setup, String delivery, String category, boolean safe, String lang) {
         this.id = id;
         getMetadata().setName("" + id);
         this.joke = joke;
+        this.setup = setup;
+        this.delivery = delivery;
         this.category = category;
         this.safe = safe;
         this.lang = lang;
@@ -54,6 +58,22 @@ public class Joke extends CustomResource<Void, Void> implements Namespaced {
 
     public void setJoke(String joke) {
         this.joke = joke;
+    }
+
+    public String getSetup() {
+        return setup;
+    }
+
+    public void setSetup(String setup) {
+        this.setup = setup;
+    }
+
+    public String getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(String delivery) {
+        this.delivery = delivery;
     }
 
     public String getCategory() {
